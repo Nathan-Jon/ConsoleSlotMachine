@@ -45,22 +45,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\ConfigConstants.cs" />
-    <Compile Include="ConfigReader.cs" />
-    <Compile Include="DataTypes\CellValues.cs" />
-    <Compile Include="DataTypes\ICellValues.cs" />
-    <Compile Include="GridLogic.cs" />
-    <Compile Include="Interfaces\IGridLogic.cs" />
+    <Compile Include="BusinessLogic\ConfigReader.cs" />
+    <Compile Include="BusinessLogic\CellValueLogic.cs" />
+    <Compile Include="Interfaces\ICellValueLogic.cs" />
+    <Compile Include="BusinessLogic\SlotMachineLogic.cs" />
+    <Compile Include="Interfaces\ISlotMachineLogic.cs" />
     <Compile Include="Interfaces\IConfigReader.cs" />
     <Compile Include="Interfaces\IWheelRow.cs" />
     <Compile Include="DataTypes\WheelRow.cs" />
     <Compile Include="Interfaces\IInputValidator.cs" />
-    <Compile Include="InputValidator.cs" />
-    <Compile Include="Interfaces\ISlotMachineLogic.cs" />
+    <Compile Include="Validators\InputValidator.cs" />
+    <Compile Include="Interfaces\ISlotMachineController.cs" />
+    <Compile Include="Interfaces\ISlotMachineView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SlotMachineLogic.cs" />
+    <Compile Include="Views\SlotMachine\SlotMachineController.cs" />
     <Compile Include="DataTypes\WheelCell.cs" />
     <Compile Include="DataTypes\Enums\CellValueEnums.cs" />
+    <Compile Include="Views\SlotMachine\SlotMachineView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

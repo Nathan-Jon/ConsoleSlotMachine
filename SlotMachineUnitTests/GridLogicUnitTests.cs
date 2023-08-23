@@ -11,15 +11,15 @@ namespace SlotMachineUnitTests
     public class GridLogicUnitTests
     {
 
-        IGridLogic GridLogic;
+        ISlotMachineLogic GridLogic;
 
         public GridLogicUnitTests()
         {
             Random random = new Random();
             IConfigReader configReader = new ConfigReader();
-            ICellValues cellValues = new CellValues(random);
+            ICellValueLogic cellValues = new CellValueLogic(random);
 
-            GridLogic = new GridLogic(configReader, cellValues);
+            GridLogic = new SlotMachineLogic(configReader, cellValues);
         }
 
         [TestMethod]

@@ -37,13 +37,13 @@ namespace SlotMachineUnitTests
         [TestMethod]
         public void ValidateTextIsDouble_Fail()
         {
-            Assert.IsFalse(Validator.ValidateTextIsDouble("test"));
+            Assert.IsFalse(Validator.ValidateTextIsDecimal("test"));
         }
 
         [TestMethod]
         public void ValidateTextIsDouble_Success()
         {
-            Assert.IsTrue(Validator.ValidateTextIsDouble("123"));
+            Assert.IsTrue(Validator.ValidateTextIsDecimal("123"));
         }
 
         [TestMethod]

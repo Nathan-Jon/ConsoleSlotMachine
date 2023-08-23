@@ -11,10 +11,11 @@ namespace SlotMachine
             IConfigReader configReader = new ConfigReader();
             Random rand = new Random();
             IInputValidator inputValidator = new InputValidator(configReader);
-            ICellValues cellValues = new CellValues(rand);
-            IGridLogic gridLogic = new GridLogic(configReader, cellValues);
+            ICellValueLogic cellValues = new CellValueLogic(rand);
+            ISlotMachineLogic gridLogic = new SlotMachineLogic(configReader, cellValues);
+            ISlotMachineView view = new SlotMachineView(inputValidator, configReader);
 
-            ISlotMachineLogic slotMachineLogic = new SlotMachineLogic(inputValidator, configReader, gridLogic);
+            ISlotMachineController slotMachineLogic = new SlotMachineController(configReader, gridLogic, view);
 
             slotMachineLogic.StartGame();
         }

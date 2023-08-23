@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace SlotMachine.DataTypes
 {
-    public class CellValues : ICellValues
+    public class CellValueLogic : ICellValueLogic
     {
         private List<WheelCell> WeightedCellValues { get; set; }
         Random RandomNumberGenerator { get; set; }
 
-        public CellValues(Random randomNumberGenerator)
+        public CellValueLogic(Random randomNumberGenerator)
         {
             WeightedCellValues = new List<WheelCell>()
             {

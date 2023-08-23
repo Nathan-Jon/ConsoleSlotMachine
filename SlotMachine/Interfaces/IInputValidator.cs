@@ -2,8 +2,8 @@
 {
     public interface IInputValidator
     {
-        bool ValidateIsZeroOrBelow(double value);
-        bool ValidateTextIsDouble(string text);
-        bool ValidateValueIsHigher(double highValue, double lowValue);
+        bool ValidateIsZeroOrBelow(decimal value);
+        bool ValidateTextIsDecimal(string text);
+        bool ValidateValueIsHigher(decimal highValue, decimal lowValue);
     }
 }

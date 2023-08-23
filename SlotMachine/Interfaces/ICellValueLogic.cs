@@ -2,7 +2,7 @@
 
 namespace SlotMachine.DataTypes
 {
-    public interface ICellValues
+    public interface ICellValueLogic
     {
         WheelCell GetRandomWeightedValue();
     }
