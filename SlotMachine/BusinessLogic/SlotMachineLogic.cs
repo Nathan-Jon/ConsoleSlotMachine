@@ -7,12 +7,10 @@ namespace SlotMachine
 {
     public class SlotMachineLogic : ISlotMachineLogic
     {
-        private IConfigReader ConfigReader { get; set; }
         private ICellValueLogic CellValues { get; set; }
 
-        public SlotMachineLogic(IConfigReader configReader, ICellValueLogic cellValues)
+        public SlotMachineLogic(ICellValueLogic cellValues)
         {
-            ConfigReader = configReader ?? throw new ArgumentNullException(nameof(configReader));
             CellValues = cellValues ?? throw new ArgumentNullException(nameof(cellValues));
         }
 
@@ -49,7 +47,7 @@ namespace SlotMachine
 
             if (rows.Any(x => x.IsWinningRow()))
             {
-                double totalWinCoefficient = rows.Where(x => x.IsWinningRow()).Sum(x => x.GetTotalRowCoefficient());
+                decimal totalWinCoefficient = rows.Where(x => x.IsWinningRow()).Sum(x => x.GetTotalRowCoefficient());
 
                 //Calculate Winnings
                 winnings = (decimal)totalWinCoefficient * stakeAmount;

@@ -12,7 +12,7 @@ namespace SlotMachine
             Random rand = new Random();
             IInputValidator inputValidator = new InputValidator(configReader);
             ICellValueLogic cellValues = new CellValueLogic(rand);
-            ISlotMachineLogic gridLogic = new SlotMachineLogic(configReader, cellValues);
+            ISlotMachineLogic gridLogic = new SlotMachineLogic(cellValues);
             ISlotMachineView view = new SlotMachineView(inputValidator, configReader);
 
             ISlotMachineController slotMachineLogic = new SlotMachineController(configReader, gridLogic, view);

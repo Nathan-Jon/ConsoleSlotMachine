@@ -38,7 +38,7 @@ namespace SlotMachine.DataTypes
         /// Calculate total coefficient value from all cells in row
         /// </summary>
         /// <returns></returns>
-        public double GetTotalRowCoefficient()
+        public decimal GetTotalRowCoefficient()
         {
             if (WheelCells == null || !WheelCells.Any())
                 return 0;

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 
 namespace SlotMachine
 {
@@ -19,12 +20,12 @@ namespace SlotMachine
         /// <summary>
         /// Coefficient used for calculating winnings
         /// </summary>
-        public double Coefficient { get; private set; }
+        public decimal Coefficient { get; private set; }
 
         public WheelCell()
         { }
 
-        public WheelCell(CellValueEnum cellValue, double coefficient, int weighting)
+        public WheelCell(CellValueEnum cellValue, decimal coefficient, int weighting)
         {
             Value = cellValue;
             Coefficient = coefficient;

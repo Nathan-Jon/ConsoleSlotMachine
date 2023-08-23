@@ -19,7 +19,7 @@ namespace SlotMachineUnitTests
             IConfigReader configReader = new ConfigReader();
             ICellValueLogic cellValues = new CellValueLogic(random);
 
-            GridLogic = new SlotMachineLogic(configReader, cellValues);
+            GridLogic = new SlotMachineLogic(cellValues);
         }
 
         [TestMethod]
@@ -74,5 +74,85 @@ namespace SlotMachineUnitTests
             //Cell count will be # of Rows * # of Cells 
             Assert.IsTrue(rowCount == 20 && cellCount == 400);
         }
+
+        [TestMethod]
+        public void WheelRowIsWinner_Success()
+        {
+            WheelCell[] cells = new WheelCell[]
+            {
+              new WheelCell(CellValueEnum.Apple, (decimal)0.4, 45),
+              new WheelCell(CellValueEnum.Apple, (decimal)0.4, 45),
+              new WheelCell(CellValueEnum.Apple, (decimal)0.4, 45)
+            };
+
+            WheelRow row = new WheelRow(cells);
+
+            Assert.IsTrue(row.IsWinningRow());
+        }
+
+        [TestMethod]
+        public void WheelRowIsWinner_Fail()
+        {
+            WheelCell[] cells = new WheelCell[]
+            {
+              new WheelCell(CellValueEnum.Apple,(decimal) 0.4, 45),
+              new WheelCell(CellValueEnum.Apple, (decimal)0.4, 45),
+              new WheelCell(CellValueEnum.Pineapple, (decimal)0.8, 45)
+            };
+
+            WheelRow row = new WheelRow(cells);
+
+            Assert.IsFalse(row.IsWinningRow());
+        }
+
+        [TestMethod]
+        public void WheelRowWildcardIsWinner_Sucess()
+        {
+            WheelCell[] cells = new WheelCell[]
+            {
+              new WheelCell(CellValueEnum.Apple, (decimal)0.4, 45),
+              new WheelCell(CellValueEnum.Wildcard, 0, 5),
+              new WheelCell(CellValueEnum.Wildcard, 0, 5),
+            };
+
+            WheelRow row = new WheelRow(cells);
+
+            Assert.IsTrue(row.IsWinningRow());
+        }
+        
+        [TestMethod]
+        public void WheelRowCorrectWinCoefficient_Success()
+        {
+            WheelCell[] cells = new WheelCell[]
+            {
+              new WheelCell(CellValueEnum.Apple, (decimal)0.4, 45),
+              new WheelCell(CellValueEnum.Apple, (decimal) 0.4, 45),
+              new WheelCell(CellValueEnum.Apple, (decimal) 0.4, 45)
+            };
+
+            WheelRow row = new WheelRow(cells);
+
+            decimal rowCoefficient = row.GetTotalRowCoefficient();
+
+            Assert.AreEqual(rowCoefficient, (decimal)1.2);
+        }
+
+        [TestMethod]
+        public void WheelRowCorrectWinCoefficient_Fail()
+        {
+            WheelCell[] cells = new WheelCell[]
+            {
+              new WheelCell(CellValueEnum.Apple, (decimal) 0.4, 45),
+              new WheelCell(CellValueEnum.Pineapple, (decimal) 0.8, 15),
+              new WheelCell(CellValueEnum.Apple, (decimal) 0.4, 45)
+            };
+
+            WheelRow row = new WheelRow(cells);
+
+            decimal rowCoefficient = row.GetTotalRowCoefficient();
+
+            Assert.AreNotEqual(rowCoefficient, (decimal)1.2);
+        }
+
     }
 }

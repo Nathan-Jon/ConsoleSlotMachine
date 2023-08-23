@@ -12,9 +12,9 @@ namespace SlotMachine.DataTypes
         {
             WeightedCellValues = new List<WheelCell>()
             {
-                new WheelCell(CellValueEnum.Apple, 0.4, 45),
-                new WheelCell(CellValueEnum.Banana, 0.6, 35),
-                new WheelCell(CellValueEnum.Pineapple, 0.8, 15),
+                new WheelCell(CellValueEnum.Apple, (decimal)0.4, 45),
+                new WheelCell(CellValueEnum.Banana, (decimal)0.6, 35),
+                new WheelCell(CellValueEnum.Pineapple, (decimal)0.8, 15),
                 new WheelCell(CellValueEnum.Wildcard, 0, 5),
             };
 

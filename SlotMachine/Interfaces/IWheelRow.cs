@@ -6,7 +6,7 @@ namespace SlotMachine.DataTypes
     {
         IList<WheelCell> WheelCells { get; set; }
         string GetCellValuesAsText(string seperator);
-        double GetTotalRowCoefficient();
+        decimal GetTotalRowCoefficient();
         bool IsWinningRow();
     }
 }

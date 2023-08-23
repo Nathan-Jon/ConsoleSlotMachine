@@ -27,11 +27,9 @@ namespace SlotMachine
             {
                 string number = Console.ReadLine();
 
-                //*NOTE* Add validation to decimal point here
-
                 if (InputValidator.ValidateTextIsDecimal(number))
                 {
-                    totalAmount = Convert.ToDecimal(number);
+                    totalAmount = Decimal.Round(Convert.ToDecimal(number), 2);
                 }
                 else
                 {
@@ -82,7 +80,7 @@ namespace SlotMachine
                         continue;
                     }
 
-                    stakeAmount = amount;
+                    stakeAmount = Decimal.Round(Convert.ToDecimal(amount), 2);
 
                 }
                 else
